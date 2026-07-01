@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: chatify
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: MONGO_URI
+        sync: false
+        placeholder: "Your MongoDB connection string (e.g. mongodb+srv://...)"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
+        placeholder: "Your Render Web Service URL (e.g. https://chatify.onrender.com) once deployed"
+      - key: RESEND_API_KEY
+        sync: false
+        placeholder: "Your Resend API Key"
+      - key: EMAIL_FROM
+        sync: false
+        placeholder: "onboarding@resend.dev or your verified domain sender email"
+      - key: EMAIL_FROM_NAME
+        value: "Chatify App"
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+        placeholder: "Your Cloudinary Cloud Name"
+      - key: CLOUDINARY_API_KEY
+        sync: false
+        placeholder: "Your Cloudinary API Key"
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+        placeholder: "Your Cloudinary API Secret"
+      - key: ARCJET_KEY
+        sync: false
+        placeholder: "Your Arcjet Key"
+      - key: ARCJET_ENV
+        value: production
